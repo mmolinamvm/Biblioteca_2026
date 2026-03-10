@@ -7,7 +7,7 @@
 </head>
 <body class="container mt-5">
 <h1 class="mb-4">Llistat de Llibres</h1>
-<h2 class="mb-4">- mmolina@institutmvm.cat –</h2>
+<h2 class="mb-4">- mmolina@institutmvm.cat -</h2>
 
 <table class="table table-striped table-hover">
     <thead class="table-dark">
