@@ -13,3 +13,5 @@ Route::get('/llibres/crear', [LlibreController::class, 'create']);
 
 // Aquesta ruta serveix per REBRE les dades del formulari
 Route::post('/llibres/crear', [LlibreController::class, 'store']);
+
+Route::get('/llibres/{id}', [LlibreController::class, 'show']);

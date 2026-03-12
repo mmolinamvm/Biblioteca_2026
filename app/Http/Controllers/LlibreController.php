@@ -47,4 +47,10 @@ class LlibreController extends Controller
         // 4. Finalment, tornem al llistat de llibres per veure que s'ha afegit correctament
         return redirect('/llibres');
     }
+    public function show($id)
+    {
+        // Busquem el llibre pel seu ID. Si no existeix, donarà un error 404.
+        $llibre = \App\Models\Llibre::findOrFail($id);
+        return view('llibres.show', compact('llibre'));
+    }
 }
