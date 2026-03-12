@@ -31,7 +31,16 @@ class LlibreController extends Controller
         $nouLlibre->isbn = $request->input('isbn');
         $nouLlibre->pagines = $request->input('pagines');
         $nouLlibre->preu = $request->input('preu');
+        // GESTIÓ DE LA IMATGE
+        if ($request->hasFile('imatge')) {
+            // Guardem la imatge a la carpeta 'public/portades'
+            $fitxer = $request->file('imatge');
+            $nomImatge = time() . '_' . $fitxer->getClientOriginalName();
+            $fitxer->move(public_path('portades'), $nomImatge);
 
+            // Guardem el nom del fitxer a la base de dades
+            $nouLlibre->imatge = $nomImatge;
+        }
         // 3. El mètode save() l'envia definitivament a la base de dades MySQL
         $nouLlibre->save();
 
