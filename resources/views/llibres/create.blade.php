@@ -9,7 +9,8 @@
 <h1>Afegir un nou llibre</h1>
 <h2 class="mb-4">- mmolina@institutmvm.cat -</h2>
 
-<form action="/llibres/crear" method="POST" class="mt-4 p-4 border rounded bg-light">
+<form action="/llibres/crear" method="POST" enctype="multipart/form-data" class="mt-4 p-4 border rounded bg-light">
+
     @csrf  <div class="mb-3">
         <label class="form-label">Títol del llibre</label>
         <input type="text" name="titol" class="form-control">
@@ -29,7 +30,10 @@
         <label class="form-label">Preu (€)</label>
         <input type="number" step="0.01" name="preu" class="form-control">
     </div>
-
+    <div class="mb-3">
+        <label class="form-label">Portada del llibre</label>
+        <input type="file" name="imatge" class="form-control">
+    </div>
     <button type="submit" class="btn btn-primary">Guardar a la biblioteca</button>
     <a href="/llibres" class="btn btn-link">Tornar enrere</a>
 </form>
