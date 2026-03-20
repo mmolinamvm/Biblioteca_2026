@@ -28,6 +28,7 @@
             <td>{{ $llibre->preu }} €</td>
             <td>
                 <a href="/llibres/{{ $llibre->id }}" class="btn btn-info btn-sm">Veure</a>
+                <a href="/llibres/editar/{{ $llibre->id }}" class="btn btn-info btn-sm">Editar</a>
                 <a href="/llibres/delete/{{ $llibre->id }}" class="btn btn-info btn-sm">Esborrar</a>
             </td>
         </tr>

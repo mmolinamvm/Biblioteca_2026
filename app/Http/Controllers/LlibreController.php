@@ -69,4 +69,32 @@ class LlibreController extends Controller
         return view('llibres.edit', compact('llibre'));
     }
 
+
+    public function update(\Illuminate\Http\Request $request,$id)
+    {
+        // 1. Creem un objecte nou del nostre Model (com una fila buida a la taula)
+        $llibre = \App\Models\Llibre::findOrFail($id);
+
+        // 2. Omplim cada camp amb el que l'usuari ha escrit al formulari.
+        // Fem servir $request->input('NOM_DEL_CAMP_HTML')
+        $llibre->titol = $request->input('titol');
+        $llibre->isbn = $request->input('isbn');
+        $llibre->pagines = $request->input('pagines');
+        $llibre->preu = $request->input('preu');
+        // GESTIÓ DE LA IMATGE
+        if ($request->hasFile('imatge')) {
+            // Guardem la imatge a la carpeta 'public/portades'
+            $fitxer = $request->file('imatge');
+            $nomImatge = time() . '_' . $fitxer->getClientOriginalName();
+            $fitxer->move(public_path('portades'), $nomImatge);
+
+            // Guardem el nom del fitxer a la base de dades
+            $llibre->imatge = $nomImatge;
+        }
+        // 3. El mètode save() l'envia definitivament a la base de dades MySQL
+        $llibre->save();
+
+        // 4. Finalment, tornem al llistat de llibres per veure que s'ha afegit correctament
+        return redirect('/llibres');
+    }
 }
