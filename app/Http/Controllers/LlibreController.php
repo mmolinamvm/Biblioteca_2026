@@ -53,4 +53,12 @@ class LlibreController extends Controller
         $llibre = \App\Models\Llibre::findOrFail($id);
         return view('llibres.show', compact('llibre'));
     }
+
+    public function delete($id)
+    {
+        // Busquem el llibre pel seu ID. Si no existeix, donarà un error 404.
+        $llibre = \App\Models\Llibre::findOrFail($id);
+        $llibre->delete();
+        return redirect('/llibres');
+    }
 }
