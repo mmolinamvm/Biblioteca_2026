@@ -31,6 +31,19 @@
         <input type="number" step="0.01" name="preu" class="form-control"  value="{{ $llibre->preu }}">
     </div>
     <div class="mb-3">
+        <label class="form-label">Modificar autors:</label>
+        <select name="autors[]" class="form-select" multiple>
+            @foreach($autors as $autor)
+                @if ($llibre->autors->contains('id',$autor->id))
+                <option value="{{ $autor->id }}" selected>{{ $autor->name }}</option>
+                @else
+                <option value="{{ $autor->id }}">{{ $autor->name }}</option>
+                @endif
+            @endforeach
+        </select>
+        <small class="text-muted">Mantingues premut Ctrl per seleccionar-ne més d'un.</small>
+    </div>
+    <div class="mb-3">
         <label class="form-label">Canviar portada del llibre</label>
         <input type="file" name="imatge" class="form-control">
     </div>

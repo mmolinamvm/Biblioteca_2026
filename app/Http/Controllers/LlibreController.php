@@ -71,7 +71,8 @@ class LlibreController extends Controller
     {
         // Busquem el llibre pel seu ID. Si no existeix, donarà un error 404.
         $llibre = \App\Models\Llibre::findOrFail($id);
-        return view('llibres.edit', compact('llibre'));
+        $autors = \App\Models\Autor::all();
+        return view('llibres.edit', compact('llibre'), compact('autors'));
     }
 
 
@@ -98,7 +99,11 @@ class LlibreController extends Controller
         }
         // 3. El mètode save() l'envia definitivament a la base de dades MySQL
         $llibre->save();
-
+        if ($request->has('autors')) {
+            $llibre->autors()->sync($request->input('autors'));
+        } else {
+            $llibre->autors()->detach();
+        }
         // 4. Finalment, tornem al llistat de llibres per veure que s'ha afegit correctament
         return redirect('/llibres');
     }
