@@ -16,6 +16,14 @@ class AutorController extends Controller
         return view('autors.index', ['autors' => $totsElsAutors]);
     }
 
+    public function autorsxllibres()
+    {
+        // Equivalent a: SELECT * FROM llibres
+        $totsElsAutors = Autor::all();
+
+        // Enviem les dades a la vista (com el ModelAndView)
+        return view('autors.autorsxllibres', ['autors' => $totsElsAutors]);
+    }
 
     public function create()
     {

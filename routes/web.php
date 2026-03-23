@@ -38,3 +38,4 @@ Route::get('/autors/editar/{id}', [AutorController::class, 'edit']);
 Route::post('/autors/editar/{id}', [AutorController::class, 'update']);
 
 Route::get('/llibresxautors', [LlibreController::class, 'llibresxautors']);
+Route::get('/autorsxllibres', [AutorController::class, 'autorsxllibres']);

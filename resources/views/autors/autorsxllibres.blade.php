@@ -16,18 +16,22 @@
     <thead class="table-dark">
     <tr>
         <th>Nom</th>
-        <th>Nacionalitat</th>
-        <th>Date naixement</th>
-        <th>Date defunció</th>
+        <th>Llibres</th>
     </tr>
     </thead>
     <tbody>
     @forelse($autors as $autor)
         <tr>
             <td>{{ $autor->name }}</td>
-            <td>{{ $autor->nacionality }}</td>
-            <td>{{ $autor->birth_date }}</td>
-            <td>{{ $autor->death_date }}</td>
+            <td>
+                <ul>
+                    @forelse($autor->llibres as $llibre)
+                        <li>{{ $llibre->titol }}</li>
+                    @empty
+                        No hi ha llibres assignats.
+                    @endforelse
+                </ul>
+            </td>
         </tr>
     @empty
         <tr>
