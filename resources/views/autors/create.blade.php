@@ -31,7 +31,7 @@
         <input type="date" name="death_date" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Guardar a la biblioteca</button>
-    <a href="/llibres" class="btn btn-link">Tornar enrere</a>
+    <a href="/autors" class="btn btn-link">Tornar enrere</a>
 </form>
 </body>
 </html>

@@ -15,6 +15,15 @@ class LlibreController extends Controller
         return view('llibres.index', ['llibres' => $totsElsLlibres]);
     }
 
+    public function llibresxautors()
+    {
+        // Equivalent a: SELECT * FROM llibres
+        $totsElsLlibres = Llibre::all();
+
+        // Enviem les dades a la vista (com el ModelAndView)
+        return view('llibres.llibresxautors', ['llibres' => $totsElsLlibres]);
+    }
+
     public function create()
     {
         $autors = \App\Models\Autor::all();

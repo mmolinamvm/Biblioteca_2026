@@ -10,6 +10,7 @@
 <h2 class="mb-4">-mmolina@institutmvm.cat–</h2>
 <a href="/autors/crear" class="btn btn-success mb-3">Afegir un autor nou</a>
 <a href="/llibres" class="btn btn-info mb-3">Veure llibres</a>
+<a href="/llibresxautors" class="btn btn-info mb-3">Veure llibres x autors</a>
 <table class="table table-striped table-hover">
     <thead class="table-dark">
     <tr>

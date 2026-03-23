@@ -36,3 +36,5 @@ Route::get('/autors/delete/{id}', [AutorController::class, 'delete']);
 Route::get('/autors/editar/{id}', [AutorController::class, 'edit']);
 // Aquesta ruta serveix per REBRE les dades del formulari
 Route::post('/autors/editar/{id}', [AutorController::class, 'update']);
+
+Route::get('/llibresxautors', [LlibreController::class, 'llibresxautors']);

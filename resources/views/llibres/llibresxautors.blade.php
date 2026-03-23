@@ -15,23 +15,21 @@
     <thead class="table-dark">
     <tr>
         <th>Títol</th>
-        <th>ISBN</th>
-        <th>Pàgines</th>
-        <th>Preu</th>
-        <th>Accions</th>
+        <th>Autors</th>
     </tr>
     </thead>
     <tbody>
     @forelse($llibres as $llibre)
         <tr>
             <td>{{ $llibre->titol }}</td>
-            <td>{{ $llibre->isbn }}</td>
-            <td>{{ $llibre->pagines }}</td>
-            <td>{{ $llibre->preu }} €</td>
             <td>
-                <a href="/llibres/{{ $llibre->id }}" class="btn btn-info btn-sm">Veure</a>
-                <a href="/llibres/editar/{{ $llibre->id }}" class="btn btn-info btn-sm">Editar</a>
-                <a href="/llibres/delete/{{ $llibre->id }}" class="btn btn-info btn-sm">Esborrar</a>
+                <ul>
+                    @forelse($llibre->autors as $autor)
+                        <li>{{ $autor->name }}</li>
+                    @empty
+                        No hi ha autor assignat.
+                    @endforelse
+                </ul>
             </td>
         </tr>
     @empty
