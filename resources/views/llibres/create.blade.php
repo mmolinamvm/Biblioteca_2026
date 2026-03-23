@@ -34,6 +34,15 @@
         <label class="form-label">Portada del llibre</label>
         <input type="file" name="imatge" class="form-control">
     </div>
+    <div class="mb-3">
+        <label class="form-label">Selecciona els autors:</label>
+        <select name="autors[]" class="form-select" multiple>
+            @foreach($autors as $autor)
+                <option value="{{ $autor->id }}">{{ $autor->name }}</option>
+            @endforeach
+        </select>
+        <small class="text-muted">Mantingues premut Ctrl per seleccionar-ne més d'un.</small>
+    </div>
     <button type="submit" class="btn btn-primary">Guardar a la biblioteca</button>
     <a href="/llibres" class="btn btn-link">Tornar enrere</a>
 </form>

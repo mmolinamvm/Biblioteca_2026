@@ -19,6 +19,12 @@
             @endif
         </div>
         <div class="col-md-8">
+            <p><strong>Autors:</strong></p>
+            <ul>
+                @foreach($llibre->autors as $autor)
+                    <li>{{ $autor->name }}</li>
+                @endforeach
+            </ul>
             <p><strong>ISBN:</strong> {{ $llibre->isbn }}</p>
             <p><strong>Pàgines:</strong> {{ $llibre->pagines }}</p>
             <p><strong>Preu:</strong> {{ $llibre->preu }} €</p>

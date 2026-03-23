@@ -13,12 +13,12 @@
 
     @csrf  <div class="mb-3">
         <label class="form-label">Nom</label>
-        <input type="text" name="titol" class="form-control">
+        <input type="text" name="name" class="form-control">
     </div>
 
     <div class="mb-3">
         <label class="form-label">Nacionalitat</label>
-        <input type="text" name="isbn" class="form-control">
+        <input type="text" name="nacionality" class="form-control">
     </div>
 
     <div class="mb-3">

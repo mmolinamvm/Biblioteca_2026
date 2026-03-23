@@ -8,12 +8,15 @@
 <body class="container mt-5">
 <h1 class="mb-4">Llistat d'autors</h1>
 <h2 class="mb-4">-mmolina@institutmvm.cat–</h2>
-
+<a href="/autors/crear" class="btn btn-success mb-3">Afegir un autor nou</a>
+<a href="/llibres" class="btn btn-info mb-3">Veure llibres</a>
 <table class="table table-striped table-hover">
     <thead class="table-dark">
     <tr>
         <th>Nom</th>
         <th>Nacionalitat</th>
+        <th>Date naixement</th>
+        <th>Date defunció</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +24,8 @@
         <tr>
             <td>{{ $autor->name }}</td>
             <td>{{ $autor->nacionality }}</td>
+            <td>{{ $autor->birth_date }}</td>
+            <td>{{ $autor->death_date }}</td>
         </tr>
     @empty
         <tr>

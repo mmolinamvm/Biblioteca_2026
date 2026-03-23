@@ -17,7 +17,8 @@ class LlibreController extends Controller
 
     public function create()
     {
-        return view('llibres.create');
+        $autors = \App\Models\Autor::all();
+        return view('llibres.create', compact('autors'));
     }
 
     public function store(\Illuminate\Http\Request $request)
@@ -43,7 +44,11 @@ class LlibreController extends Controller
         }
         // 3. El mètode save() l'envia definitivament a la base de dades MySQL
         $nouLlibre->save();
-
+        // Si l'usuari ha seleccionat autors al formulari:
+        if ($request->has('autors')) {
+            // attach() agafa l'array d'IDs d'autors i els posa a la taula pivot
+            $nouLlibre->autors()->attach($request->input('autors'));
+        }
         // 4. Finalment, tornem al llistat de llibres per veure que s'ha afegit correctament
         return redirect('/llibres');
     }
