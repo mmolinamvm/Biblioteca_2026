@@ -24,13 +24,12 @@
         <tr>
             <td>{{ $autor->name }}</td>
             <td>
-                <ul>
                     @forelse($autor->llibres as $llibre)
-                        <li>{{ $llibre->titol }}</li>
+                    <a href="/llibres/{{ $llibre->id }}" class="btn btn-outline-primary mb-3">{{ $llibre->titol }}</a>
                     @empty
                         No hi ha llibres assignats.
                     @endforelse
-                </ul>
+
             </td>
         </tr>
     @empty
